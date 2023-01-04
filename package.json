@@ -1,0 +1,35 @@
+{
+  "name": "syndicat",
+  "version": "1.0.0",
+  "description": "le breif",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --verbose --runInBand --forceExit",
+    "server": "nodemon server/server.js",
+    "client": "npm start --prefix admin",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix admin && npm run build --prefix frontend"
+  },
+  "author": "abdessamad",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "colors": "^1.4.0",
+    "dotenv": "^15.0.0",
+    "express": "^4.17.2",
+    "express-async-handler": "^1.2.0",
+    "cookie-parser": "^1.4.6",
+    "jsonwebtoken": "^8.5.1",
+    "nodemailer": "^6.8.0",
+    "cors": "^2.8.5",
+    "mongoose": "^6.1.9"
+  },
+  "devDependencies": {
+    "concurrently": "^7.0.0",
+    "nodemon": "^2.0.15" ,
+    "supertest": "^6.3.1" ,
+    "colors": "^1.4.0",
+    "jest": "^29.3.1"
+  }
+}
