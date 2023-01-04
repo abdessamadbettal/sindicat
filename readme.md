@@ -3,7 +3,7 @@ project Sindicat with technology :
 
 ## Tech Stack
 
-**Client:** React, bootstrap
+**Client:** React, typescript
 
 **Server:** Node, Express
 

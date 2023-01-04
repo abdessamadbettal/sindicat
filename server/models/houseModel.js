@@ -1,20 +1,42 @@
 const mongoose = require('mongoose')
 
-const goalSchema = mongoose.Schema(
+const houseSchema = mongoose.Schema(
   {
-    user: {
-      type: mongoose.Schema.Types.ObjectId,
-      required: true,
-      ref: 'User',
-    },
-    text: {
+    name: {
       type: String,
-      required: [true, 'Please add a text value'],
+      required: [true, 'Please add a name'],
     },
+    address: {
+      type: String,
+      required: [true, 'Please add an address'],
+    },
+    price: {
+      type: Number,
+      required: [true, 'Please add a price'],
+    },
+    city: {
+      type: String,
+      required: [true, 'Please add a city'],
+    },
+    etage: {
+      type: Number,
+      required: [true, 'Please add a etage'],
+    },
+    rooms: {
+      type: Number,
+      required: [true, 'Please add a rooms'],
+    },
+    bloc: {
+      type: String,
+      required: [true, 'Please add a bloc'],
+    }
+
+
+   
   },
   {
     timestamps: true,
   }
 )
 
-module.exports = mongoose.model('House', goalSchema)
+module.exports = mongoose.model('House', houseSchema)
