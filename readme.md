@@ -1,30 +1,41 @@
-# Goalsetter MERN app
+# Syndicat
+project Sindicat with technology :
 
-This is the goalsetter app from the [Learn the MERN Stack](https://www.youtube.com/watch?v=-0exw-9YJBo) series on YouTube.
+## Tech Stack
 
-## Usage
+**Client:** React, bootstrap
 
-Rename the .envexample to .env and add your MONGO_URI
+**Server:** Node, Express
 
-### Install dependencies
+**database:** mongodb
 
-```
-# Backend deps
-npm install
 
-# Frontend deps
-cd frontend
-npm install
-```
+## API Reference
 
-### Run Server
+### Autentication
 
-```
-npm run server
-```
+| Method | Api     | Description                |
+| :-------- | :------- | :------------------------- |
+| `POST` | `/api/Auth/login` | **Register**|
+| `POST` | `/api/Auth/register` | **Login**|
+| `GET` | `/api/Auth/confirm/:token` | **confirmEmail**|
+| `POST` | `/api/Auth/forgetpassword` | **forgetpassword**|
+| `POST` | `/api/Auth/resetpassword/:token` | **resetpassword**|
 
-## Demo
+### house
 
-I am not sure how long this will be up
+| Method | Api     | Description                |
+| :-------- | :------- | :------------------------- |
+| `POST` | `/api/house/add` | **createHouse**|
+| `PUT` | `/api/house/update/:id` | **updateHouse**|
+| `DELETE` | `/api/house/delete/:id` | **deleteHouse**|
+| `GET` | `/api/house/getAll` | **GetAllHouse**|
 
-https://mernappbrad.herokuapp.com/
+### paiement
+
+| Method | Api     | Description                |
+| :-------- | :------- | :------------------------- |
+| `POST` | `/api/paiement/creatpaiement` | **creatPaiement**|
+| `PUT` | `/api/paiement/updatepaiements` | **updatePaiements**|
+| `DELETE` | `/api/paiement/deletepaiement/:id` | **deletePaiement**|
+| `GET` | `/api/paiement/getAllCommands` | **getAllPaiements**|
