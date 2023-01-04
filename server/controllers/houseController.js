@@ -1,95 +1,87 @@
 const asyncHandler = require('express-async-handler')
 
-const Goal = require('../models/houseModel')
-const User = require('../models/userModel')
+const House = require('../models/houseModel')
 
-// @desc    Get goals
-// @route   GET /api/goals
+// @desc    Get houses
+// @route   GET /api/houses
 // @access  Private
-const getGoals = asyncHandler(async (req, res) => {
-  const goals = await Goal.find({ user: req.user.id })
+const getHouses = asyncHandler(async (req, res) => {
+  const houses = await House.find({ user: req.user.id })
 
-  res.status(200).json(goals)
+  res.status(200).json(houses)
 })
 
-// @desc    Set goal
-// @route   POST /api/goals
+// @desc    Set house
+// @route   POST /api/houses
 // @access  Private
-const setGoal = asyncHandler(async (req, res) => {
-  if (!req.body.text) {
+const setHouse = asyncHandler(async (req, res) => {
+// console.log(req.body)
+  if(!req.body.name || !req.body.address || !req.body.city || !req.body.rooms ||  !req.body.price || !req.body.etage || !req.body.bloc){
     res.status(400)
-    throw new Error('Please add a text field')
+    throw new Error('Please fill all fields')
   }
-
-  const goal = await Goal.create({
-    text: req.body.text,
-    user: req.user.id,
+  const house = await House.create({
+    name: req.body.name,
+    address: req.body.address,
+    city: req.body.city,
+    rooms: req.body.rooms,
+    price: req.body.price,
+    etage: req.body.etage,
+    bloc: req.body.bloc
   })
-
-  res.status(200).json(goal)
+  res.status(200).json(house)
 })
 
-// @desc    Update goal
-// @route   PUT /api/goals/:id
+// @desc    Update house
+// @route   PUT /api/houses/:id
 // @access  Private
-const updateGoal = asyncHandler(async (req, res) => {
-  const goal = await Goal.findById(req.params.id)
+const updateHouse = asyncHandler(async (req, res) => {
+  console.log(req.body)
+  const house = await House.findById(req.params.id)
+  console.log(house)
 
-  if (!goal) {
+  if (!house) {
     res.status(400)
-    throw new Error('Goal not found')
+    throw new Error('house not found')
   }
+  const { name, address, city, rooms, price, etage, bloc } = req.body
+  const updatedHouse = await House.findByIdAndUpdate(
+    req.params.id,
+    {
+      name,
+      address,
+      city,
+      rooms,
+      price,
+      etage,
+      bloc
+    },
+    { new: true }
+  )
 
-  // Check for user
-  if (!req.user) {
-    res.status(401)
-    throw new Error('User not found')
-  }
+  res.status(200).json(updatedHouse)
 
-  // Make sure the logged in user matches the goal user
-  if (goal.user.toString() !== req.user.id) {
-    res.status(401)
-    throw new Error('User not authorized')
-  }
-
-  const updatedGoal = await Goal.findByIdAndUpdate(req.params.id, req.body, {
-    new: true,
-  })
-
-  res.status(200).json(updatedGoal)
 })
 
-// @desc    Delete goal
-// @route   DELETE /api/goals/:id
+// @desc    Delete house
+// @route   DELETE /api/houses/:id
 // @access  Private
-const deleteGoal = asyncHandler(async (req, res) => {
-  const goal = await Goal.findById(req.params.id)
+const deleteHouse = asyncHandler(async (req, res) => {
+  const house = await House.findById(req.params.id)
 
-  if (!goal) {
+  if (!house) {
     res.status(400)
-    throw new Error('Goal not found')
+    throw new Error('house not found')
   }
 
-  // Check for user
-  if (!req.user) {
-    res.status(401)
-    throw new Error('User not found')
-  }
+  await house.remove()
 
-  // Make sure the logged in user matches the goal user
-  if (goal.user.toString() !== req.user.id) {
-    res.status(401)
-    throw new Error('User not authorized')
-  }
-
-  await goal.remove()
-
-  res.status(200).json({ id: req.params.id })
+  res.status(200).json({ message: 'house removed' })
 })
 
 module.exports = {
-  getGoals,
-  setGoal,
-  updateGoal,
-  deleteGoal,
+  getHouses,
+  setHouse,
+  updateHouse,
+  deleteHouse,
 }

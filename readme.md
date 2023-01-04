@@ -26,16 +26,18 @@ project Sindicat with technology :
 
 | Method | Api     | Description                |
 | :-------- | :------- | :------------------------- |
-| `POST` | `/api/house/add` | **createHouse**|
+| `GET` | `/api/house/` | **GetAllHouse**|
+| `GET` | `/api/house/:id` | **GetHouse**|
+| `POST` | `/api/house/` | **createHouse**|
 | `PUT` | `/api/house/update/:id` | **updateHouse**|
 | `DELETE` | `/api/house/delete/:id` | **deleteHouse**|
-| `GET` | `/api/house/getAll` | **GetAllHouse**|
 
 ### paiement
 
 | Method | Api     | Description                |
 | :-------- | :------- | :------------------------- |
-| `POST` | `/api/paiement/creatpaiement` | **creatPaiement**|
-| `PUT` | `/api/paiement/updatepaiements` | **updatePaiements**|
-| `DELETE` | `/api/paiement/deletepaiement/:id` | **deletePaiement**|
-| `GET` | `/api/paiement/getAllCommands` | **getAllPaiements**|
+| `GET` | `/api/paiements/` | **getAllPaiements**|
+| `POST` | `/api/paiements/` | **creatPaiement**|
+| `PUT` | `/api/paiements/:id` | **updatePaiements**|
+| `DELETE` | `/api/paiements/deletepaiement/:id` | **deletePaiement**|
+| `GET` | `/api/paiements/:id` | **getAllPaiements**|
