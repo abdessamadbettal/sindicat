@@ -11,6 +11,20 @@ const getHouses = asyncHandler(async (req, res) => {
   res.status(200).json(houses)
 })
 
+// @desc    Get house by ID
+// @route   GET /api/houses/:id
+// @access  Private
+const getHouseById = asyncHandler(async (req, res) => {
+  const house = await House.findById(req.params.id)
+
+  if (house) {
+    res.status(200).json(house)
+  } else {
+    res.status(404)
+    throw new Error('house not found')
+  }
+})
+
 // @desc    Set house
 // @route   POST /api/houses
 // @access  Private
@@ -84,4 +98,5 @@ module.exports = {
   setHouse,
   updateHouse,
   deleteHouse,
+  getHouseById,
 }

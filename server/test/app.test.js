@@ -231,11 +231,154 @@ describe("PUT /api/houses/", () => {
   
 });
 
-// ! delete house
-describe("DELETE /api/houses/", () => {
-  it("should delete a house", async () => {
-    const res = await request(app).delete("/api/houses/"+ _id);
+
+// ! get all houses
+describe("GET /api/houses/", () => {
+  it("should get all houses", async () => {
+    const res = await request(app).get("/api/houses");
     expect(res.statusCode).toBe(200);
   });
   
 });
+
+// ! get one house
+describe("GET /api/houses/:id", () => {
+  it("should get one house", async () => {
+    const res = await request(app).get("/api/houses/"+ _id);
+    expect(res.statusCode).toBe(200);
+  });
+  
+});
+
+// // ! delete house
+// describe("DELETE /api/houses/", () => {
+//   it("should delete a house", async () => {
+//     const res = await request(app).delete("/api/houses/"+ _id);
+//     expect(res.statusCode).toBe(200);
+//   });
+  
+// });
+
+
+// ************************************************************** paiement ************************************************************************ //
+
+name = faker.name.firstName();
+let date_paiement = faker.date.between();
+let date_new_paiement = faker.date.between()
+// random between 'payed' and 'not payed'
+let type_paiement = faker.helpers.arrayElement(['payball', 'cache' , 'virement bancaire' , 'cheque' , 'credit'])
+let montant = faker.datatype.number(10000)
+let house = _id ;
+_id_housse = "" ;
+
+// ! for create paiement
+describe("POST /api/paiements/", () => {
+   it("should create a paiement", async () => {
+    const res = await request(app).post("/api/paiements").send({
+      name: name,
+      date_paiement: date_paiement,
+      type_paiement: type_paiement,
+      date_new_paiement: date_new_paiement,
+      montant: montant,
+      house: _id,
+    });
+    _id_housse = res.body._id ;
+    expect(res.statusCode).toBe(200);
+  }); 
+  it("should not create a paiement because name", async () => {
+    const res = await request(app).post("/api/paiements").send({
+      date_paiement: date_paiement,
+      type_paiement: type_paiement,
+      date_new_paiement: date_new_paiement,
+      montant: montant,
+      house: _id,
+    });
+    expect(res.statusCode).toBe(400);
+  });
+  it("should not create a paiement because date_paiement", async () => {
+    const res = await request(app).post("/api/paiements").send({
+      name: name,
+      type_paiement: type_paiement,
+      date_new_paiement: date_new_paiement,
+      montant: montant,
+      house: _id,
+    });
+    expect(res.statusCode).toBe(400);
+  });
+  it("should not create a paiement because type_paiement", async () => {
+    const res = await request(app).post("/api/paiements").send({
+      name: name,
+      date_paiement: date_paiement,
+      date_new_paiement: date_new_paiement,
+      montant: montant,
+      house: _id,
+    });
+    expect(res.statusCode).toBe(400);
+  });
+  it("should not create a paiement because date_new_paiement", async () => {
+    const res = await request(app).post("/api/paiements").send({
+      name: name,
+      date_paiement: date_paiement,
+      type_paiement: type_paiement,
+      montant: montant,
+      house: _id,
+    });
+    expect(res.statusCode).toBe(400);
+  } );
+  it("should not create a paiement because montant", async () => {
+    const res = await request(app).post("/api/paiements").send({
+      name: name,
+      date_paiement: date_paiement,
+      type_paiement: type_paiement,
+      date_new_paiement: date_new_paiement,
+      house: _id,
+    });
+    expect(res.statusCode).toBe(400);
+  });
+
+
+
+
+});
+
+// ! for update paiement
+describe("PUT /api/paiements/", () => { 
+  it("should update a paiement", async () => {
+    const res = await request(app).put("/api/paiements/"+ _id_housse).send({
+      name: 'test '+ name,
+      date_paiement: date_paiement,
+      type_paiement: type_paiement,
+      date_new_paiement: date_new_paiement,
+      montant: montant,
+      house: _id,
+    });
+    expect(res.statusCode).toBe(200);
+  });
+  
+});
+
+// ! get all paiements
+describe("GET /api/paiements/", () => {
+  it("should get all paiements", async () => {
+    const res = await request(app).get("/api/paiements");
+    expect(res.statusCode).toBe(200);
+  });
+  
+});
+
+// ! get one paiement
+describe("GET /api/paiements/:id", () => {
+  it("should get one paiement", async () => {
+    const res = await request(app).get("/api/paiements/"+ _id_housse);
+    expect(res.statusCode).toBe(200);
+  });
+  
+});
+
+// // ! delete paiement
+// describe("DELETE /api/paiements/", () => {
+//   it("should delete a paiement", async () => {
+//     const res = await request(app).delete("/api/paiements/"+ _id_housse);
+//     expect(res.statusCode).toBe(200);
+//   });
+
