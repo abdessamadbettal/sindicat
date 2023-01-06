@@ -20,6 +20,10 @@ const userSchema = mongoose.Schema(
       type: String,
       enum: ['user', 'admin'],
       default: 'user',
+    } ,
+    token: {
+      type: String,
+      unique: true,
     }
   },
   {

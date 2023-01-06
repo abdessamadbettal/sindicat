@@ -7,8 +7,8 @@
     "start": "node server/server.js",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --verbose --runInBand --forceExit",
     "server": "nodemon server/server.js",
-    "client": "npm start --prefix admin",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "admin": "npm start --prefix admin",
+    "dev": "concurrently \"npm run server\" \"npm run admin\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix admin && npm run build --prefix frontend"
   },
   "author": "abdessamad",
