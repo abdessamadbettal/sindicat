@@ -18,19 +18,16 @@ project Sindicat with technology :
 | :-------- | :------- | :------------------------- |
 | `POST` | `/api/Auth/login` | **Register**|
 | `POST` | `/api/Auth/register` | **Login**|
-| `GET` | `/api/Auth/confirm/:token` | **confirmEmail**|
-| `POST` | `/api/Auth/forgetpassword` | **forgetpassword**|
-| `POST` | `/api/Auth/resetpassword/:token` | **resetpassword**|
 
 ### house
 
 | Method | Api     | Description                |
 | :-------- | :------- | :------------------------- |
-| `GET` | `/api/house/` | **GetAllHouse**|
-| `GET` | `/api/house/:id` | **GetHouse**|
-| `POST` | `/api/house/` | **createHouse**|
-| `PUT` | `/api/house/update/:id` | **updateHouse**|
-| `DELETE` | `/api/house/delete/:id` | **deleteHouse**|
+| `GET` | `/api/houses/` | **GetAllHouse**|
+| `GET` | `/api/houses/:id` | **GetHouse**|
+| `POST` | `/api/houses/` | **createHouse**|
+| `PUT` | `/api/houses/update/:id` | **updateHouse**|
+| `DELETE` | `/api/houses/delete/:id` | **deleteHouse**|
 
 ### paiement
 
