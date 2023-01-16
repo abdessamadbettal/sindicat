@@ -7,7 +7,7 @@ const Paiement = require('../models/paiementModel')
 // @route   GET /api/paiements
 // @access  Private
 const getPaiements = asyncHandler(async (req, res) => {
-    const paiements = await Paiement.find({ user: req.user.id })
+    const paiements = await Paiement.find({}).populate('house', 'name')
 
     res.status(200).json(paiements)
     
@@ -36,7 +36,9 @@ const setPaiement = asyncHandler(async (req, res) => {
 // @route   PUT /api/paiements/:id
 // @access  Private
 const updatePaiement = asyncHandler(async (req, res) => {
+    console.log(req.body)
     const paiement = await Paiement.findById(req.params.id)
+
 
     if (!paiement) {
         res.status(400)

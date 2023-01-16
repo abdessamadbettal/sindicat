@@ -17,63 +17,15 @@ const SidebarMenuMain = () => {
         fontIcon='bi-app-indicator'
       />
       <SidebarMenuItem
-        to='/documents'
+        to='/appartements'
         icon='/media/icons/duotune/general/gen019.svg'
-        title='Documents'
+        title='appartements'
         fontIcon='bi-layers'
       />
       <SidebarMenuItem
-        to='/specialites'
+        to='/paiements'
         icon='/media/icons/duotune/general/gen019.svg'
-        title='Specialites'
-        fontIcon='bi-layers'
-      />
-      <SidebarMenuItem
-        to='/modules'
-        icon='/media/icons/duotune/general/gen019.svg'
-        title='Modules'
-        fontIcon='bi-layers'
-      />
-      <SidebarMenuItem
-        to='/ecoles'
-        icon='/media/icons/duotune/general/gen019.svg'
-        title='Ecoles'
-        fontIcon='bi-layers'
-      />
-      <SidebarMenuItem
-        to='/universites'
-        icon='/media/icons/duotune/general/gen019.svg'
-        title='Universites'
-        fontIcon='bi-layers'
-      />
-      <SidebarMenuItem
-        to='/contacts'
-        icon='/media/icons/duotune/general/gen019.svg'
-        title='Contacts'
-        fontIcon='bi-layers'
-      />
-      <SidebarMenuItem
-        to='/codepromos'
-        icon='/media/icons/duotune/general/gen019.svg'
-        title='code promos'
-        fontIcon='bi-layers'
-      />
-      <SidebarMenuItem
-        to='/users'
-        icon='/media/icons/duotune/general/gen019.svg'
-        title='users'
-        fontIcon='bi-layers'
-      />
-      <SidebarMenuItem
-        to='/commandes'
-        icon='/media/icons/duotune/general/gen019.svg'
-        title='commandes'
-        fontIcon='bi-layers'
-      />
-      <SidebarMenuItem
-        to='/comments'
-        icon='/media/icons/duotune/general/gen019.svg'
-        title='comments'
+        title='paiements'
         fontIcon='bi-layers'
       />
       {/* <div className='menu-item'>

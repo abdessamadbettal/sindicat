@@ -6,7 +6,7 @@ const House = require('../models/houseModel')
 // @route   GET /api/houses
 // @access  Private
 const getHouses = asyncHandler(async (req, res) => {
-  const houses = await House.find({ user: req.user.id })
+  const houses = await House.find({})
 
   res.status(200).json(houses)
 })
@@ -70,7 +70,7 @@ const updateHouse = asyncHandler(async (req, res) => {
       etage,
       bloc
     },
-    { new: true }
+    { new: true } // return the new house instead of the old one
   )
 
   res.status(200).json(updatedHouse)

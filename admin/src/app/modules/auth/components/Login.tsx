@@ -21,7 +21,7 @@ const loginSchema = Yup.object().shape({
 })
 
 const initialValues = {
-  email: 'abdorabeh@gmail.com',
+  email: 'abdorabeh2@gmail.com',
   // email: 'admin@demo.com',
   password: 'blablabla',
   // password: 'demo',
@@ -71,7 +71,8 @@ export function Login() {
         // "2022-07-14T11:37:39.000000Z"
         const {data: auth} = await login(values.email, values.password)
         console.log("auth", auth)
-        saveAuth(auth)
+        saveAuth(auth) // save to local storage
+        // alert('Logged in successfully')
         
         const {data: user} = await getUserByToken(auth.api_token)
         console.log("user", user)
@@ -79,7 +80,7 @@ export function Login() {
 // : 
 // "$2y$10$lzYGs3CVjxdlR2ERLfZOyezaXM8qXLGd5fHEkjoBmDxznEl.CvAdC"
 // created_at
-// : 
+// :  
 // "2022-07-14T11:37:39.000000Z"
 // email
 // : 

@@ -7,11 +7,7 @@ import {MenuTestPage} from '../pages/MenuTestPage'
 import {getCSSVariableValue} from '../../_metronic/assets/ts/_utils'
 import {WithChildren} from '../../_metronic/helpers'
 import BuilderPageWrapper from '../pages/layout-builder/BuilderPageWrapper'
-import { TableCommande ,
-   TableContact , TableComment ,
-    TableUser ,TableCodePromo ,
-    TableDocument , TableSpecialite ,
-     TableEcole , TableModule } from '../../_metronic/partials/widgets'
+import { TableAppartement  , TablePaiement } from '../../_metronic/partials/widgets'
 
 const PrivateRoutes = () => {
   const ProfilePage = lazy(() => import('../modules/profile/ProfilePage'))
@@ -28,15 +24,8 @@ const PrivateRoutes = () => {
         <Route path='auth/*' element={<Navigate to='/dashboard' />} />
         {/* Pages */}
         <Route path='dashboard' element={<DashboardWrapper />} />
-        <Route path='commandes' element={<TableCommande className='mb-5 mb-xl-8' />} />
-        <Route path='documents' element={ <TableDocument className='mb-5 mb-xl-8' />} />
-        <Route path='comments' element={ <TableComment className='mb-5 mb-xl-8' />} />
-        <Route path='codepromos' element={ <TableCodePromo className='mb-5 mb-xl-8' />} />
-        <Route path='users' element={<TableUser className='mb-5 mb-xl-8' />} />
-        <Route path='contacts' element={ <TableContact className='mb-5 mb-xl-8' />} />
-        <Route path='specialites' element={ <TableSpecialite className='mb-5 mb-xl-8' />} />
-        <Route path='ecoles' element={ <TableEcole className='mb-5 mb-xl-8' />} />
-        <Route path='modules' element={ <TableModule className='mb-5 mb-xl-8' />} />
+        <Route path='appartements' element={<TableAppartement className='mb-5 mb-xl-8' />} />
+        <Route path='paiements' element={ <TablePaiement className='mb-5 mb-xl-8' />} />
         <Route path='builder' element={<BuilderPageWrapper />} />
         <Route path='menu-test' element={<MenuTestPage />} />
         {/* Lazy Modules */}

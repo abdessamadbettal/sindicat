@@ -92,11 +92,11 @@ const getMe = asyncHandler(async (req, res) => {
 // @route   GET /api/users/verify_token
 // @access  Public
 const verifyToken = asyncHandler(async (req, res) => {
-  console.log(req.headers)
+  console.log('header',req.headers)
   const token = req.headers.authorization.split(' ')[1]
-  console.log(token)
+  // console.log(token)
   const decoded = jwt.verify(token, process.env.JWT_SECRET)
-  console.log(decoded)
+  console.log("decoded",decoded)
   const user = await User.findById(decoded.id)
   console.log(user)
   if (user.role === 'admin') {
@@ -110,7 +110,7 @@ const verifyToken = asyncHandler(async (req, res) => {
   } else {
     res.status(401)
     throw new Error('Not authorized')
-  }
+  }  
   
 })
 

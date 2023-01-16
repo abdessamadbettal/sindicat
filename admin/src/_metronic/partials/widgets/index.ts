@@ -64,15 +64,9 @@ export * from './tables/TablesWidget10'
 export * from './tables/TablesWidget11'
 export * from './tables/TablesWidget12'
 export * from './tables/TablesWidget13'
-export * from './tables/TableCommande'
-export * from './tables/TableUser'
-export * from './tables/TableComment'
-export * from './tables/TableCodePromo'
-export * from './tables/TableContact'
-export * from './tables/TableDocument'
-export * from './tables/TableSpecialite'
-export * from './tables/TableEcole'
-export * from './tables/TableModule'
+export * from './tables/TableAppartement'
+export * from './tables/TablePaiement'
+
 
 
 // engage

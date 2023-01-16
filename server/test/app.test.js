@@ -255,7 +255,7 @@ describe("GET /api/houses/:id", () => {
 //   it("should delete a house", async () => {
 //     const res = await request(app).delete("/api/houses/"+ _id);
 //     expect(res.statusCode).toBe(200);
-//   });
+//   });   
   
 // });
 
@@ -283,7 +283,7 @@ describe("POST /api/paiements/", () => {
       house: _id,
     });
     _id_housse = res.body._id ;
-    expect(res.statusCode).toBe(200);
+    expect(res.statusCode).toBe(200); 
   }); 
   it("should not create a paiement because name", async () => {
     const res = await request(app).post("/api/paiements").send({

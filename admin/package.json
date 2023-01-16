@@ -39,7 +39,7 @@
     "react-topbar-progress-indicator": "4.1.1",
     "sass": "1.50.1",
     "socicon": "3.0.5",
-    "yup": "0.32.11"
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "5.16.4",
